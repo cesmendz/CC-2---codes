@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class SalesCalculator {
+
+    public static void main(String[] cesca) {
+        Scanner input = new Scanner(System.in);
+
+        // Input for Item 1
+        System.out.print("Enter the price of item 1: ");
+        double price1 = input.nextDouble();
+        System.out.print("Enter the quantity of item 1: ");
+        int quantity1 = input.nextInt();
+
+        // Input for Item 2
+        System.out.print("Enter the price of item 2: ");
+        double price2 = input.nextDouble();
+        System.out.print("Enter the quantity of item 2: ");
+        int quantity2 = input.nextInt();
+
+        // Input for Item 3
+        System.out.print("Enter the price of item 3: ");
+        double price3 = input.nextDouble();
+        System.out.print("Enter the quantity of item 3: ");
+        int quantity3 = input.nextInt();
+
+        // Calculations
+        double subtotal = (price1 * quantity1) + (price2 * quantity2) + (price3 * quantity3);
+        double discount = 0.05 * subtotal;
+        double discountedPrice = subtotal - discount;
+        double salesTax = 0.12 * discountedPrice;
+        double finalTotal = discountedPrice + salesTax;
+
+        // Output
+        System.out.println("\nSubtotal     : PHP " + String.format("%.2f", subtotal));
+        System.out.println("Discount    : PHP " + String.format("%.2f", discount));
+        System.out.println("Sales Tax   : PHP " + String.format("%.2f", salesTax));
+        System.out.println("Final Total  : PHP " + String.format("%.2f", finalTotal));
+
+        input.close();
+    }
+}

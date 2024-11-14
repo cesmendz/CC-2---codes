@@ -1,3 +1,53 @@
+//Final project that i pass
+import java.util.Scanner;
+
+public class WDataTracker_MFM {
+    public static void main(String[] args) {
+        // Number of cities and days
+        final int CITIES = 3;
+        final int DAYS = 7;
+
+        // Array to store temperature data for 3 cities over 7 days
+        double[][] temperatures = new double[CITIES][DAYS];
+
+        // Scanner for user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Input temperature data
+        for (int i = 0; i < CITIES; i++) {
+            System.out.println("Enter temperatures for City " + (i + 1) + " for 7 days:");
+            for (int j = 0; j < DAYS; j++) {
+                System.out.print("Day " + (j + 1) + ": ");
+                temperatures[i][j] = scanner.nextDouble();
+            }
+        }
+
+        // Close the scanner
+        scanner.close();
+
+        // Calculate average temperature and highest temperature for each city
+        for (int i = 0; i < CITIES; i++) {
+            double totalTemperature = 0;
+            double highestTemperature = Double.MIN_VALUE;
+
+            for (int j = 0; j < DAYS; j++) {
+                totalTemperature += temperatures[i][j];
+                if (temperatures[i][j] > highestTemperature) {
+                    highestTemperature = temperatures[i][j];
+                }
+            }
+
+            double averageTemperature = totalTemperature / DAYS;
+
+            // Display results
+            System.out.printf("City %d - Average Temperature: %.2f, Highest Temperature: %.2f%n", 
+                              (i + 1), averageTemperature, highestTemperature);
+        }
+    }
+}
+
+
+//Enhanced project or more advance
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;

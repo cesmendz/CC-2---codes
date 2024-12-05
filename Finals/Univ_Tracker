@@ -1,0 +1,21 @@
+public class Tracker {
+    public static void main(String[] args) {
+    //Make arrays, names and grades
+    String[] names = {"Irene", "Diadem", "Angelo", "Lawrence", "Natasha"};
+    int[][] grades = {{96, 95, 93}, {91, 93, 88}, {81, 83, 86}, {87, 81, 92}, {89, 90, 90}};
+    
+    //Calc for avg
+    for (int i = 0; i<names.length; i++)
+    {
+    int avg = 0;
+    for (int e = 0; e<grades[i].length; e++) {
+    avg += grades[i][e];
+    }
+    double average = avg/ grades[i].length;
+    
+    //print
+    System.out.println(names[i] + " has an average grade of: " +average);
+    }
+    }
+    
+}

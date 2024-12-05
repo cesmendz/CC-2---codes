@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+//Custom Exception class
+class InvalidQuantityException extends Exception {
+    public InvalidQuantityException(String message) {
+        super(message);
+    }
+}
+
+// ShoppingCart class to manage stock and product quantity
+class ShoppingCart {
+    private int availableStock;
+
+    public ShoppingCart(int availableStock) {
+        this.availableStock = availableStock;
+    }
+
+    // Method to check and process quantity
+    public void processQuantity(int quantity) throws InvalidQuantityException {
+        if(quantity < 0) {
+            throw new InvalidQuantityException("Error: Quantity cannot be negative ");
+        }else if (quantity > availableStock) {
+            throw new InvalidQuantityException("Error: Insufficient stock. Only " + availableStock + "Items are Available");
+        }
+        System.out.println("Product added to cart. \tQuantity" + quantity);
+    }
+
+    public int getAvailableStock() {
+        return availableStock;
+    }
+}
+
+public class Error_ShoppingCart {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Create a shopping cart with 20 items in stock
+        ShoppingCart cart =  new ShoppingCart(100);
+
+        // User interaction
+        System.out.println("Welcome to the Online Shopping Cart!");
+        System.out.println("Available Stock: " + cart.getAvailableStock());
+
+
+        try {
+            // Ask for the product quantity
+            System.out.println("Enter Quantity to add to cart: ");
+            int quantity = scanner.nextInt();
+
+            // Try to process the quantity
+            cart.processQuantity(quantity);
+        }catch (InvalidQuantityException e) {
+            // Catch the custom exception and display the error message
+            System.out.println(e.getMessage());
+        }finally {
+            System.out.println("Thank You for using our Online Shopping Cart!");
+            scanner.close();
+        }
+    }
+}

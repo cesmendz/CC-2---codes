@@ -1,0 +1,25 @@
+public class RetailStore {
+    public static void main(String[] args) {
+        // Array to store the stock levels of 10 products
+        int[] stockLevels = {50, 30, 20, 15, 60, 40, 10, 5, 25, 35};
+        
+        // Array to store the prices of those products
+        double[] prices = {19.99, 9.99, 29.99, 49.99, 15.99, 5.99, 99.99, 24.99, 39.99, 59.99};
+        
+        // Calculate the total value of all items in stock
+        double totalValue = calculateTotalValue(stockLevels, prices);
+        
+        // Print the total value
+        System.out.printf("The total value of all items in stock is: $%.2f%n", totalValue);
+    }
+    
+    public static double calculateTotalValue(int[] stockLevels, double[] prices) {
+        double total = 0.0;
+        
+        for (int i = 0; i < stockLevels.length; i++) {
+            total += stockLevels[i] * prices[i];
+        }
+        
+        return total;
+    }
+}
